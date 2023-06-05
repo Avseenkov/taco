@@ -5,7 +5,6 @@ import com.avseenkov.tacos.model.Ingredient;
 import com.avseenkov.tacos.model.Ingredient.Type;
 import com.avseenkov.tacos.model.Taco;
 import com.avseenkov.tacos.model.TacoOrder;
-import com.avseenkov.tacos.model.TacoUDT;
 import com.avseenkov.tacos.repository.IngredientRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -60,7 +59,7 @@ public class DesignTacoController {
             return "design";
         }
 
-        tacoOrder.addTaco(new TacoUDT(taco.getName(), taco.getIngredients()));
+        tacoOrder.addTaco(taco);
         log.info("Processing taco: {}", taco);
         return "redirect:/orders/current";
     }
